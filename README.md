@@ -65,6 +65,12 @@ python benchmarks_run.py
 
 Our benchmarking includes 15 algorithms, covering both standard and reward-reshaped variants for comprehensive evaluation. If you only need the baseline models — TRPO, PPO, SAC, and their reward-reshaped variants — you can modify ```benchmarks_run.py``` accordingly to skip the additional methods.
 
+## For Visualization
+
+1. You need to run the benchmarks that you want to visualize. Navigate to benchmarks/ and run ``python train_benchmarks.py`` edit the configuration in this file as needed.
+2. The script ``visualization.py`` shows you how to save outputs of stages. configure based on what modules you want to visualize.
+
+
 ### Benchmark Summary (mean final evaluation cost)
 
 | Algorithm     | Materials | Topological | Molecular |
@@ -145,6 +151,7 @@ dpo/
 └── main.ipynb               # DPO training notebook
 └── analysis.ipynb           # Misc analysis notebook
 ```
+
 
 ## Citation
 

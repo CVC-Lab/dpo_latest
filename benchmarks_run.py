@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from utils import get_environment, setup_dpo_model, plot_eval_benchmarks
 from benchmarks.sb3_utils import setup_benchmark_model
-from test import test_model_through_vals
+from test_utils import test_model_through_vals
 
 
 DEFAULT_GAMMA = 0.99

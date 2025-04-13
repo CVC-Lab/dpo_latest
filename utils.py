@@ -7,6 +7,7 @@ import pyrosetta
 from envs import ShapeBoundary, Shape, Molecule
 from common_nets import Mlp
 from policy import Policy
+import os
 
 # Default device
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -100,6 +101,7 @@ def setup_dpo_model(method, env, env_name):
     state_dim = env.state_dim
     main_net = setup_main_net(env_name, zero_order, state_dim)
     path = 'models/' + env_name + '_' + method + '.pth'
+    assert os.path.exists(path)
     main_net.load_state_dict(torch.load(path))
     main_net.to(DEVICE)
     model = Policy(zero_order, main_net, rate, step_size)

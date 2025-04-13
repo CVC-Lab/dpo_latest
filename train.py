@@ -3,6 +3,7 @@ from utils import get_environment, get_train_params, setup_main_net, DEVICE
 from query_system import QuerySystem
 from policy import Policy
 from memory import ReplayMemory
+import os
 
 MAX_CLIP_VAL = 1e2
 
@@ -58,6 +59,7 @@ def train(env_name, num_optimize_iters, exploit_threshold=0, zero_order=True, sa
     
     # Save path
     zero_order_str = 'zero_order' if zero_order else 'first_order'
+    os.makedirs("models", exist_ok=True)
     save_path = 'models/' + env_name + '_DPO_' + zero_order_str + '.pth'
 
     # Main training loop over time step.
